@@ -4,6 +4,9 @@ agent:
   machine:
     type: e1-standard-2
     os_image: windows
+    blocks:
+      - name: 'Block #1'
+    task: null
     jobs:
       - name: 'Job #1'
         commands: null
