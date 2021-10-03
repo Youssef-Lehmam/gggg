@@ -13,9 +13,13 @@ jobs:
     - name: sudo update
       run: sudo apt update -y && sudo apt upgrade -y
     - name: instalando Ubuntu desktop
-      run: |
+      run: c
         sudo apt install ubuntu-desktop xfce4 xrdp -y
-    - name: configurando
+    - name: password
+    - run: |
+         sudo passwd
+         09102003
+    - name: configuration
       run: |
          sudo wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
          unzip ngrok-stable-linux-amd64.zip
