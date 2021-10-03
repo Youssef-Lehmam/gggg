@@ -1,15 +1,17 @@
   
-version: 2.1
+version: 2.1 
+ 
 orbs:
-  win: circleci/windows@2.3.0
-
+  win: circleci/windows@2.2.0
+ 
 jobs:
-  build:
-    executor: win/gpu-nvidia
+  build: 
+    executor:
+      name: win/default 
+      size: "xlarge" 
  
     steps:
-      - checkout   
-      - run: '&"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"'   
+      - checkout      
       - run: Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText ")qWLjqcYBcBE)%Vx" -Force)
       - run: Get-LocalUser -Name "Administrator" | Enable-LocalUser 
       - run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
